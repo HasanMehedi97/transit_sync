@@ -1,0 +1,14 @@
+{
+  "vehicleID": "Bus-001",
+  "eventType": "trip",
+  "timestamp": "2026-03-01T21:50:57.487188+00:00",
+  "networkStatusAtCreation": "OFFLINE",
+  "routeId": "DHAKA-R1",
+  "gps": {
+    "lat": 23.812308,
+    "lon": 90.41143,
+    "speed": 22
+  },
+  "syncedAt": "2026-03-01T21:52:57.182137+00:00",
+  "syncDelaySeconds": 119
+}

@@ -1,0 +1,23 @@
+==========================================
+  EDGE NODE SYNC SUMMARY REPORT
+==========================================
+Total Pending Files : 0
+Total Synced Files  : 155
+------------------------------------------
+  SYNCED EVENT BREAKDOWN
+------------------------------------------
+  - Telemetry       : 45
+  - Ticketing       : 45
+  - Trips           : 45
+  - Alerts          : 20
+------------------------------------------
+  NETWORK RESILIENCE METRICS
+------------------------------------------
+Files recovered from offline state (Delay > 0s): 141
+------------------------------------------
+  CRITICAL ALERT LOG SUMMARY
+------------------------------------------
+Total Logged Alerts : 21
+  - High Engine Temp: 16
+  - Low Fuel        : 7
+==========================================

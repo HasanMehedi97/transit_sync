@@ -1,0 +1,11 @@
+{
+  "vehicleID": "Bus-003",
+  "eventType": "alert",
+  "timestamp": "2026-03-02T05:22:07.086404+00:00",
+  "networkStatusAtCreation": "ONLINE",
+  "alerts": [
+    "LOW_FUEL"
+  ],
+  "syncedAt": "2026-03-02T05:22:08.594348+00:00",
+  "syncDelaySeconds": 1
+}

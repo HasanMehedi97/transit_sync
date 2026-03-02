@@ -1,0 +1,10 @@
+{
+  "vehicleID": "Bus-001",
+  "eventType": "telemetry",
+  "timestamp": "2026-03-01T21:50:25.040399+00:00",
+  "networkStatusAtCreation": "OFFLINE",
+  "fuelLevel": 78,
+  "engineTemp": 82,
+  "syncedAt": "2026-03-01T21:52:54.426719+00:00",
+  "syncDelaySeconds": 149
+}

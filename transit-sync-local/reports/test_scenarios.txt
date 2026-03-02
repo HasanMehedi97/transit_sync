@@ -1,0 +1,24 @@
+Test Scenarios
+--------------
+1. Offline data generation test
+   - The simulator was run with is_online = false.
+   - New event files were created in data/pending.
+   - Files remained in pending and were not uploaded.
+
+2. Online synchronization test
+   - The simulator was run with is_online = true.
+   - Pending files were uploaded to Azure Blob Storage.
+   - Uploaded files were moved to data/synced.
+
+3. Delayed synchronization test
+   - Event files were created while offline.
+   - After waiting for some time, connectivity was restored.
+   - Uploaded files showed syncedAt and syncDelaySeconds values.
+
+4. Alert logging test
+   - Events with high engine temperature or low fuel were generated.
+   - Alerts were written into src/alerts.log.
+
+5. Summary reporting test
+   - The summary script was run successfully.
+   - A summary report file was generated in the reports folder.

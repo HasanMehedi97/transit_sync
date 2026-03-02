@@ -1,0 +1,13 @@
+{
+  "vehicleID": "Bus-003",
+  "eventType": "ticketing",
+  "timestamp": "2026-03-02T05:19:55.150364+00:00",
+  "networkStatusAtCreation": "OFFLINE",
+  "seatsOccupied": [
+    "H2",
+    "D2"
+  ],
+  "seatSoldNow": null,
+  "syncedAt": "2026-03-02T05:22:09.516656+00:00",
+  "syncDelaySeconds": 134
+}

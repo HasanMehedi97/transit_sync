@@ -1,0 +1,11 @@
+Project Architecture Notes
+--------------------------
+1. A simulated public transport vehicle generates operational data.
+2. The generated data includes GPS tracking, ticketing, and fuel/engine telemetry.
+3. When connectivity is unavailable, event files are stored locally in the pending folder.
+4. When connectivity becomes available, pending files are uploaded to Azure Blob Storage.
+5. After successful upload, files are moved to the synced folder.
+6. Each uploaded event is enriched with syncedAt and syncDelaySeconds fields.
+7. Operational alerts such as HIGH_ENGINE_TEMP and LOW_FUEL are logged locally.
+8. A summary script provides counts of pending files, synced files, alerts, and delayed synchronizations.
+9. The architecture demonstrates a resilient store-and-forward cloud ingestion model.
