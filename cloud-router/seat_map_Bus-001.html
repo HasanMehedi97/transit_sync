@@ -1,0 +1,31 @@
+
+    <html>
+    <head>
+        <title>Bus-001 - Live Seat Map</title>
+        <style>
+            body { font-family: Arial, sans-serif; background-color: #f4f4f9; text-align: center; padding: 20px; }
+            h1 { color: #333; }
+            .stats { margin-bottom: 20px; font-size: 1.2em; }
+            .bus-container { background-color: #ddd; padding: 30px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+            .row { display: flex; justify-content: center; margin-bottom: 10px; }
+            .seat { width: 50px; height: 50px; line-height: 50px; margin: 0 5px; border-radius: 8px; font-weight: bold; color: white; }
+            .aisle { width: 40px; } /* Space for the center aisle */
+            .occupied { background-color: #e74c3c; } /* Red */
+            .available { background-color: #2ecc71; } /* Green */
+            .legend-dot { display: inline-block; width: 15px; height: 15px; border-radius: 50%; margin-right: 5px; }
+        </style>
+    </head>
+    <body>
+        <h1>Live Seat Map: Bus-001</h1>
+        <div class="stats">
+            <span class="legend-dot occupied"></span> <strong>Occupied:</strong> 3 / 40 &nbsp;&nbsp;&nbsp;
+            <span class="legend-dot available"></span> <strong>Available:</strong> 37 / 40 <br>
+            <small style="color: #666; display: block; margin-top: 10px;">Last Sync: 2026-03-01T21:52:51.482773+00:00</small>
+        </div>
+        
+        <div class="bus-container">
+    <div class="row"><div class="seat available">A1</div><div class="seat available">A2</div><div class="aisle"></div><div class="seat available">A3</div><div class="seat available">A4</div></div><div class="row"><div class="seat available">B1</div><div class="seat available">B2</div><div class="aisle"></div><div class="seat available">B3</div><div class="seat occupied">B4</div></div><div class="row"><div class="seat available">C1</div><div class="seat available">C2</div><div class="aisle"></div><div class="seat available">C3</div><div class="seat occupied">C4</div></div><div class="row"><div class="seat available">D1</div><div class="seat available">D2</div><div class="aisle"></div><div class="seat available">D3</div><div class="seat available">D4</div></div><div class="row"><div class="seat available">E1</div><div class="seat available">E2</div><div class="aisle"></div><div class="seat available">E3</div><div class="seat available">E4</div></div><div class="row"><div class="seat occupied">F1</div><div class="seat available">F2</div><div class="aisle"></div><div class="seat available">F3</div><div class="seat available">F4</div></div><div class="row"><div class="seat available">G1</div><div class="seat available">G2</div><div class="aisle"></div><div class="seat available">G3</div><div class="seat available">G4</div></div><div class="row"><div class="seat available">H1</div><div class="seat available">H2</div><div class="aisle"></div><div class="seat available">H3</div><div class="seat available">H4</div></div><div class="row"><div class="seat available">I1</div><div class="seat available">I2</div><div class="aisle"></div><div class="seat available">I3</div><div class="seat available">I4</div></div><div class="row"><div class="seat available">J1</div><div class="seat available">J2</div><div class="aisle"></div><div class="seat available">J3</div><div class="seat available">J4</div></div>
+        </div>
+    </body>
+    </html>
+    

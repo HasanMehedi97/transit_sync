@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bus-003 - Live Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #161623; color: #fff; padding: 20px; margin: 0; }
+        h1 { text-align: center; color: #fff; margin-bottom: 10px; font-weight: 300; letter-spacing: 2px; }
+        .header-subtitle { text-align: center; color: #888; margin-bottom: 40px; font-size: 0.9em; }
+        
+        /* KPI Cards Styling */
+        .kpi-container { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
+        .kpi-card { background: linear-gradient(145deg, #1f1f30, #2a2a40); padding: 30px; border-radius: 20px; text-align: center; width: 250px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid #333; }
+        .kpi-icon { font-size: 3em; margin-bottom: 15px; }
+        .kpi-value { font-size: 3.5em; font-weight: bold; margin: 10px 0; text-shadow: 0 0 15px rgba(255,255,255,0.1); }
+        .kpi-unit { font-size: 0.3em; color: #aaa; font-weight: normal; vertical-align: middle; }
+        .kpi-label { color: #aaa; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Graph Container Styling */
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1400px; margin: 0 auto; }
+        .chart-card { background-color: #1f1f30; padding: 25px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border: 1px solid #333; }
+        .full-width { grid-column: 1 / -1; }
+    </style>
+</head>
+<body>
+    <h1>FLEET TELEMETRY DASHBOARD</h1>
+    <div class="header-subtitle">LIVE TRACKING ACTIVE FOR: <strong>BUS-003</strong></div>
+    
+    <div class="kpi-container">
+        <div class="kpi-card">
+            <i class="fa-solid fa-gauge-high kpi-icon" style="color: #00f2fe;"></i>
+            <div class="kpi-value">41 <span class="kpi-unit">km/h</span></div>
+            <div class="kpi-label">Current Speed</div>
+        </div>
+        
+        <div class="kpi-card">
+            <i class="fa-solid fa-temperature-half kpi-icon" style="color: #ff0844;"></i>
+            <div class="kpi-value">97 <span class="kpi-unit">°C</span></div>
+            <div class="kpi-label">Engine Temp</div>
+        </div>
+
+        <div class="kpi-card">
+            <i class="fa-solid fa-gas-pump kpi-icon" style="color: #4facfe;"></i>
+            <div class="kpi-value">45 <span class="kpi-unit">%</span></div>
+            <div class="kpi-label">Fuel Level</div>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <div class="chart-card">
+            <canvas id="speedChart"></canvas>
+        </div>
+        <div class="chart-card">
+            <canvas id="tempChart"></canvas>
+        </div>
+        <div class="chart-card full-width">
+            <canvas id="fuelChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Chart configuration template
+        const createChart = (ctxId, label, labels, data, borderColor, bgColor) => {
+            new Chart(document.getElementById(ctxId), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: label + ' History',
+                        data: data,
+                        borderColor: borderColor,
+                        backgroundColor: bgColor,
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 2,
+                        pointHoverRadius: 6
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    plugins: { legend: { labels: { color: '#fff' } } }, 
+                    scales: { 
+                        x: { grid: { color: '#333' }, ticks: { color: '#aaa' } }, 
+                        y: { grid: { color: '#333' }, ticks: { color: '#aaa' } } 
+                    } 
+                }
+            });
+        };
+
+        // Injecting the Python data into JavaScript
+        const tripTimes = ["20:14:36", "20:14:51", "20:41:06", "20:41:11", "20:41:21", "20:41:33", "20:43:06", "20:43:11", "20:43:13", "20:43:15", "20:43:35", "21:43:41"];
+        const speedData = [50, 49, 20, 21, 36, 56, 41, 63, 60, 65, 31, 41];
+        
+        const telTimes = ["20:14:36", "20:14:51", "20:41:06", "20:41:11", "20:41:21", "20:41:33", "20:43:06", "20:43:11", "20:43:13", "20:43:15", "20:43:35", "21:43:41"];
+        const tempData = [90, 75, 79, 100, 82, 76, 84, 82, 92, 96, 92, 97];
+        const fuelData = [35, 64, 42, 35, 31, 73, 92, 72, 78, 72, 76, 45];
+
+        // Draw the charts
+        createChart('speedChart', 'Speed (km/h)', tripTimes, speedData, '#00f2fe', 'rgba(0, 242, 254, 0.1)');
+        createChart('tempChart', 'Engine Temp (°C)', telTimes, tempData, '#ff0844', 'rgba(255, 8, 68, 0.1)');
+        createChart('fuelChart', 'Fuel Level (%)', telTimes, fuelData, '#4facfe', 'rgba(79, 172, 254, 0.1)');
+    </script>
+</body>
+</html>
